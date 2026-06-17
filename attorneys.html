@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attorneys | North Shore Legal Group</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #0a1220;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section { padding: 90px 0; }
+
+    .top-bar {
+      background: #050914;
+      color: #e5e7eb;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.9rem;
+    }
+
+    .top-bar span { color: #d4af37; }
+
+    nav {
+      background: rgba(10,18,32,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212,175,55,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span { color: #d4af37; }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #e5e7eb;
+    }
+
+    .nav-links a:hover { color: #d4af37; }
+
+    .nav-cta {
+      background: #d4af37;
+      color: #0a1220 !important;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 70vh;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(5,9,20,0.94), rgba(10,18,32,0.72)),
+        url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color: white;
+      padding: 100px 0;
+    }
+
+    .hero-content { max-width: 850px; }
+
+    .eyebrow {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 26px;
+    }
+
+    .hero p {
+      color: #e5e7eb;
+      font-size: 1.18rem;
+      max-width: 760px;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #d4af37;
+      color: #0a1220;
+      box-shadow: 0 15px 35px rgba(212,175,55,0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #c49f2f;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 55px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      font-size: 0.85rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #0a1220;
+      margin-top: 12px;
+      line-height: 1.1;
+    }
+
+    .section-title p {
+      color: #64748b;
+      margin-top: 15px;
+      font-size: 1.05rem;
+    }
+
+    .intro {
+      background: white;
+    }
+
+    .intro-box {
+      max-width: 950px;
+      margin: auto;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-left: 6px solid #d4af37;
+      border-radius: 22px;
+      padding: 36px;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .intro-box p {
+      color: #475569;
+      font-size: 1.08rem;
+    }
+
+    .featured-attorney {
+      background: #f8fafc;
+    }
+
+    .attorney-feature {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 55px;
+      align-items: center;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 32px;
+      padding: 45px;
+      box-shadow: 0 22px 60px rgba(15,23,42,0.12);
+    }
+
+    .attorney-photo {
+      height: 560px;
+      border-radius: 26px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 22px 50px rgba(15,23,42,0.16);
+    }
+
+    .attorney-feature h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #0a1220;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .attorney-role {
+      color: #b89022;
+      font-weight: 900;
+      display: block;
+      margin-bottom: 22px;
+      font-size: 1.05rem;
+    }
+
+    .attorney-feature p {
+      color: #64748b;
+      margin-bottom: 18px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 25px;
+    }
+
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .info-card strong {
+      display: block;
+      color: #0a1220;
+      margin-bottom: 5px;
+    }
+
+    .info-card span {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    .attorneys-list {
+      background: white;
+    }
+
+    .attorney-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .attorney-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.08);
+      transition: 0.3s ease;
+    }
+
+    .attorney-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 55px rgba(15,23,42,0.13);
+    }
+
+    .card-photo {
+      height: 330px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-content {
+      padding: 32px;
+    }
+
+    .card-content h3 {
+      color: #0a1220;
+      font-size: 1.55rem;
+      margin-bottom: 5px;
+    }
+
+    .card-content strong {
+      color: #b89022;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .card-content p {
+      color: #64748b;
+      margin-bottom: 18px;
+    }
+
+    .practice-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      background: white;
+      border: 1px solid #e5e7eb;
+      color: #334155;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .credentials-section {
+      background: #0a1220;
+      color: white;
+    }
+
+    .credentials-section .section-title h2,
+    .credentials-section .section-title p {
+      color: white;
+    }
+
+    .credential-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .credential-box {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 22px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .credential-box h3 {
+      color: #d4af37;
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    .credential-box p {
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+
+    .experience {
+      background: white;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .experience-image {
+      height: 520px;
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(10,18,32,0.15), rgba(10,18,32,0.15)),
+        url("https://images.unsplash.com/photo-1555374018-13a8994ab246?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
+      box-shadow: 0 22px 60px rgba(15,23,42,0.16);
+    }
+
+    .split h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #0a1220;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .split p {
+      color: #64748b;
+      margin-bottom: 18px;
+    }
+
+    .check-list {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .check-list li {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-left: 5px solid #d4af37;
+      padding: 16px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      color: #334155;
+      font-weight: 800;
+    }
+
+    .cta {
+      background:
+        linear-gradient(135deg, rgba(10,18,32,0.96), rgba(30,41,59,0.92)),
+        url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: #e5e7eb;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 1.08rem;
+    }
+
+    footer {
+      background: #050914;
+      color: #cbd5e1;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    footer h3,
+    footer h4 {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    footer a {
+      display: block;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    footer a:hover {
+      color: #d4af37;
+    }
+
+    .footer-note {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 22px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 950px) {
+      .nav-links { display: none; }
+
+      .attorney-feature,
+      .attorney-grid,
+      .credential-grid,
+      .split,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .attorney-photo,
+      .experience-image {
+        height: 360px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div><span>Call:</span> (631) 555-4534</div>
+    <div><span>Office:</span> Huntington, New York</div>
+    <div><span>Email:</span> info@northshorelegalgroup.com</div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">North Shore <span>Legal Group</span></a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html" class="nav-cta">Free Consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Meet Our Attorneys</div>
+      <h1>Experienced Legal Counsel With A Client-First Approach</h1>
+      <p>
+        The attorneys at North Shore Legal Group bring preparation, strategy,
+        and personalized attention to every matter we handle.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="container">
+      <div class="section-title">
+        <span>Our Team</span>
+        <h2>Legal Professionals Committed To Your Goals</h2>
+        <p>
+          North Shore Legal Group is built around experienced attorneys who combine
+          strong advocacy with clear communication and practical legal strategy.
+        </p>
+      </div>
+
+      <div class="intro-box">
+        <p>
+          Whether representing an injured client, guiding a family through estate planning,
+          handling a real estate transaction, or advising on a complex legal dispute, our
+          attorneys focus on understanding each client's needs and providing thoughtful,
+          strategic representation from start to finish.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-attorney">
+    <div class="container">
+      <div class="attorney-feature">
+        <div class="attorney-photo" style="background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1100&q=80');"></div>
+
+        <div>
+          <div class="eyebrow">Founding Partner</div>
+          <h2>Michael Harrington, Esq.</h2>
+          <span class="attorney-role">Personal Injury, Civil Litigation & Workers Compensation</span>
+
+          <p>
+            Michael Harrington is the founding partner of North Shore Legal Group and
+            has spent more than two decades representing clients throughout New York.
+            His practice focuses on personal injury claims, civil litigation, workers
+            compensation matters, and strategic negotiation.
+          </p>
+
+          <p>
+            Known for his thorough preparation and direct communication, Michael works
+            closely with clients to understand their goals, evaluate available options,
+            and pursue strong outcomes with professionalism and focus.
+          </p>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <strong>Education</strong>
+              <span>Fordham University School of Law</span>
+            </div>
+
+            <div class="info-card">
+              <strong>Admissions</strong>
+              <span>New York State Bar</span>
+            </div>
+
+            <div class="info-card">
+              <strong>Experience</strong>
+              <span>20+ Years</span>
+            </div>
+
+            <div class="info-card">
+              <strong>Focus</strong>
+              <span>Injury Claims & Litigation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="attorneys-list">
+    <div class="container">
+      <div class="section-title">
+        <span>Attorney Profiles</span>
+        <h2>Experienced Representation Across Multiple Practice Areas</h2>
+      </div>
+
+      <div class="attorney-grid">
+
+        <div class="attorney-card">
+          <div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1100&q=80');"></div>
+
+          <div class="card-content">
+            <h3>Sarah Mitchell, Esq.</h3>
+            <strong>Senior Associate</strong>
+
+            <p>
+              Sarah Mitchell advises individuals, families, and business clients on estate
+              planning, probate, real estate transactions, and long-term legal planning.
+              Her approach is organized, detail-oriented, and focused on helping clients
+              make informed decisions.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <strong>Education</strong>
+                <span>St. John's University School of Law</span>
+              </div>
+
+              <div class="info-card">
+                <strong>Admissions</strong>
+                <span>New York State Bar</span>
+              </div>
+            </div>
+
+            <div class="practice-tags">
+              <span class="tag">Estate Planning</span>
+              <span class="tag">Probate</span>
+              <span class="tag">Real Estate Law</span>
+              <span class="tag">Trusts</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="attorney-card">
+          <div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1100&q=80');"></div>
+
+          <div class="card-content">
+            <h3>Daniel Russo, Esq.</h3>
+            <strong>Partner</strong>
+
+            <p>
+              Daniel Russo represents clients in workers compensation, civil litigation,
+              employment-related disputes, and accident-related claims. He is known for
+              practical guidance, strong preparation, and a results-focused approach.
+            </p>
+
+            <div class="info-grid">
+              <div class="info-card">
+                <strong>Education</strong>
+                <span>Hofstra University School of Law</span>
+              </div>
+
+              <div class="info-card">
+                <strong>Admissions</strong>
+                <span>New York State Bar</span>
+              </div>
+            </div>
+
+            <div class="practice-tags">
+              <span class="tag">Workers Compensation</span>
+              <span class="tag">Civil Litigation</span>
+              <span class="tag">Personal Injury</span>
+              <span class="tag">Employment Matters</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="credentials-section">
+    <div class="container">
+      <div class="section-title">
+        <span>Credentials</span>
+        <h2>Experience That Supports Every Case</h2>
+        <p>
+          Our attorneys bring combined experience, professional involvement,
+          and a commitment to thoughtful legal representation.
+        </p>
+      </div>
+
+      <div class="credential-grid">
+        <div class="credential-box">
+          <h3>25+</h3>
+          <p>Years Combined Experience</p>
+        </div>
+
+        <div class="credential-box">
+          <h3>3</h3>
+          <p>Practice-Focused Attorneys</p>
+        </div>
+
+        <div class="credential-box">
+          <h3>NY</h3>
+          <p>New York Bar Admissions</p>
+        </div>
+
+        <div class="credential-box">
+          <h3>24/7</h3>
+          <p>Consultation Availability</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience">
+    <div class="container split">
+      <div>
+        <div class="eyebrow">Why Attorney Experience Matters</div>
+        <h2>Preparation, Strategy, And Guidance At Every Stage</h2>
+        <p>
+          Legal matters often involve deadlines, documentation, negotiations, and
+          important decisions. Experienced legal counsel can help clients understand
+          their options, avoid costly mistakes, and approach each step with confidence.
+        </p>
+
+        <p>
+          At North Shore Legal Group, our attorneys focus on building strong client
+          relationships, preparing carefully, and providing practical guidance tailored
+          to the facts of each matter.
+        </p>
+
+        <ul class="check-list">
+          <li>Clear explanation of legal options</li>
+          <li>Personalized strategy for each matter</li>
+          <li>Responsive communication throughout the process</li>
+          <li>Focused preparation and strong advocacy</li>
+        </ul>
+      </div>
+
+      <div class="experience-image"></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Speak With An Attorney Today</h2>
+      <p>
+        Schedule a consultation with North Shore Legal Group and learn how our attorneys
+        can help protect your rights, your interests, and your future.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>North Shore Legal Group</h3>
+        <p>Strategic legal representation for individuals, families, and businesses across Long Island and New York.</p>
+        <br>
+        <p><strong>Phone:</strong> (631) 555-4534</p>
+        <p><strong>Email:</strong> info@northshorelegalgroup.com</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Practice Areas</h4>
+        <a href="personal-injury.html">Personal Injury</a>
+        <a href="car-accidents.html">Car Accidents</a>
+        <a href="estate-planning.html">Estate Planning</a>
+        <a href="real-estate-law.html">Real Estate Law</a>
+      </div>
+
+      <div>
+        <h4>Office</h4>
+        <p>425 Harborview Avenue</p>
+        <p>Huntington, NY 11743</p>
+        <br>
+        <p>Monday - Friday: 8 AM - 6 PM</p>
+      </div>
+    </div>
+
+    <div class="container footer-note">
+      This website is a portfolio demonstration project created by Browne Digital Solutions and does not represent a real law firm. Content is for demonstration purposes only and is not legal advice.
+      <br><br>
+      © 2026 North Shore Legal Group. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
