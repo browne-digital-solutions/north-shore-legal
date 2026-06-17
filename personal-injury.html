@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Injury Lawyer | North Shore Legal Group</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #0a1220;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section { padding: 90px 0; }
+
+    .top-bar {
+      background: #050914;
+      color: #e5e7eb;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.9rem;
+    }
+
+    .top-bar span { color: #d4af37; }
+
+    nav {
+      background: rgba(10,18,32,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212,175,55,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span { color: #d4af37; }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #e5e7eb;
+    }
+
+    .nav-links a:hover { color: #d4af37; }
+
+    .nav-cta {
+      background: #d4af37;
+      color: #0a1220 !important;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(5,9,20,0.94), rgba(10,18,32,0.72)),
+        url("https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color: white;
+      padding: 100px 0;
+    }
+
+    .hero-content { max-width: 850px; }
+
+    .eyebrow {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 26px;
+    }
+
+    .hero p {
+      color: #e5e7eb;
+      font-size: 1.18rem;
+      max-width: 760px;
+      margin-bottom: 35px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #d4af37;
+      color: #0a1220;
+      box-shadow: 0 15px 35px rgba(212,175,55,0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #c49f2f;
+    }
+
+    .btn-secondary {
+      border: 2px solid rgba(255,255,255,0.8);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #0a1220;
+      transform: translateY(-3px);
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 55px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      font-size: 0.85rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #0a1220;
+      margin-top: 12px;
+      line-height: 1.1;
+    }
+
+    .section-title p {
+      color: #64748b;
+      margin-top: 15px;
+      font-size: 1.05rem;
+    }
+
+    .overview { background: white; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .split h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #0a1220;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .split p {
+      color: #64748b;
+      margin-bottom: 18px;
+    }
+
+    .overview-image {
+      height: 520px;
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(10,18,32,0.18), rgba(10,18,32,0.18)),
+        url("https://images.unsplash.com/photo-1505663912202-ac22d4cb3707?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
+      box-shadow: 0 22px 60px rgba(15,23,42,0.16);
+    }
+
+    .injuries { background: #f8fafc; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.08);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 55px rgba(15,23,42,0.13);
+    }
+
+    .icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: #0a1220;
+      color: #d4af37;
+      font-size: 1.7rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      color: #0a1220;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: #64748b;
+    }
+
+    .why {
+      background:
+        linear-gradient(135deg, rgba(10,18,32,0.97), rgba(30,41,59,0.92)),
+        url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color: white;
+    }
+
+    .why .section-title h2,
+    .why .section-title p {
+      color: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .why-card {
+      padding: 32px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(212,175,55,0.25);
+    }
+
+    .why-card h3 {
+      color: #d4af37;
+      margin-bottom: 12px;
+    }
+
+    .why-card p {
+      color: #cbd5e1;
+    }
+
+    .process { background: white; }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .process-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .process-number {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #d4af37;
+      color: #0a1220;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .process-card h3 {
+      color: #0a1220;
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: #64748b;
+    }
+
+    .results {
+      background: #f8fafc;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .result-card {
+      background: #0a1220;
+      color: white;
+      padding: 35px;
+      border-radius: 22px;
+      border: 1px solid rgba(212,175,55,0.25);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.12);
+    }
+
+    .result-card h3 {
+      color: #d4af37;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .result-card p {
+      color: #e5e7eb;
+      font-weight: 700;
+    }
+
+    .faq { background: white; }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .faq-item {
+      background: #f8fafc;
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+    }
+
+    .faq-item h3 {
+      color: #0a1220;
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
+      color: #64748b;
+    }
+
+    .notice { background: #f8fafc; }
+
+    .notice-box {
+      max-width: 950px;
+      margin: auto;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-left: 6px solid #d4af37;
+      border-radius: 22px;
+      padding: 32px;
+      color: #475569;
+    }
+
+    .notice-box strong {
+      display: block;
+      color: #0a1220;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #0a1220, #1e293b);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: #e5e7eb;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 1.08rem;
+    }
+
+    footer {
+      background: #050914;
+      color: #cbd5e1;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    footer h3,
+    footer h4 {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    footer a {
+      display: block;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    footer a:hover { color: #d4af37; }
+
+    .footer-note {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 22px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 950px) {
+      .nav-links { display: none; }
+
+      .split,
+      .card-grid,
+      .why-grid,
+      .process-grid,
+      .results-grid,
+      .faq-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-image {
+        height: 360px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div><span>Call:</span> (631) 555-4534</div>
+    <div><span>Office:</span> Huntington, New York</div>
+    <div><span>Email:</span> info@northshorelegalgroup.com</div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">North Shore <span>Legal Group</span></a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html" class="nav-cta">Free Consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Personal Injury Representation</div>
+      <h1>Injured Due To Negligence? We Help Protect Your Rights.</h1>
+      <p>
+        North Shore Legal Group represents injured individuals and families throughout
+        New York in personal injury matters involving accidents, unsafe conditions,
+        serious injuries, and preventable harm.
+      </p>
+
+      <div class="btn-group">
+        <a href="contact.html" class="btn btn-primary">Free Consultation</a>
+        <a href="tel:6315554534" class="btn btn-secondary">Call (631) 555-4534</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="overview">
+    <div class="container split">
+      <div>
+        <div class="eyebrow">Personal Injury Law</div>
+        <h2>Focused Representation After Serious Accidents</h2>
+        <p>
+          A personal injury claim may arise when someone is harmed because of another
+          party's negligence, unsafe conduct, or failure to act responsibly. These cases
+          can involve medical bills, lost income, physical pain, emotional stress, and
+          uncertainty about the future.
+        </p>
+
+        <p>
+          North Shore Legal Group helps clients understand their options, communicate
+          with insurance companies, gather important documentation, and pursue a legal
+          strategy based on the facts of the case.
+        </p>
+
+        <p>
+          Every situation is different. Our attorneys take the time to learn what happened,
+          explain the legal process, and help clients make informed decisions from the first
+          conversation forward.
+        </p>
+      </div>
+
+      <div class="overview-image"></div>
+    </div>
+  </section>
+
+  <section class="injuries">
+    <div class="container">
+      <div class="section-title">
+        <span>Cases We Handle</span>
+        <h2>Personal Injury Matters We Commonly Assist With</h2>
+        <p>
+          The examples below are common categories of personal injury matters that may
+          require legal guidance.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="icon">🚗</div>
+          <h3>Motor Vehicle Accidents</h3>
+          <p>Car crashes, rideshare accidents, pedestrian accidents, and other motor vehicle injury claims.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🚚</div>
+          <h3>Truck Accidents</h3>
+          <p>Commercial vehicle claims involving trucking companies, insurers, and complex liability issues.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🏢</div>
+          <h3>Slip & Fall Injuries</h3>
+          <p>Claims involving unsafe property conditions, poor maintenance, or preventable hazards.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🛠️</div>
+          <h3>Construction Injuries</h3>
+          <p>Serious workplace and construction-related injuries involving safety failures or negligence.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🏥</div>
+          <h3>Medical Negligence</h3>
+          <p>Cases involving preventable medical harm, delayed diagnosis, or improper care.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⚖️</div>
+          <h3>Wrongful Death</h3>
+          <p>Legal support for families after the loss of a loved one due to negligence or preventable harm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container">
+      <div class="section-title">
+        <span>Why Hire An Attorney</span>
+        <h2>Protecting Your Claim From The Beginning</h2>
+        <p>
+          Personal injury cases often involve insurance companies, medical records,
+          deadlines, documentation, and negotiations.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Case Evaluation</h3>
+          <p>We review the facts, evidence, injuries, insurance issues, and potential legal options.</p>
+        </div>
+
+        <div class="why-card">
+          <h3>Insurance Communication</h3>
+          <p>Our team helps clients avoid confusion and manage communication with insurers.</p>
+        </div>
+
+        <div class="why-card">
+          <h3>Evidence Review</h3>
+          <p>Important documents, photos, reports, witness details, and medical records may support a claim.</p>
+        </div>
+
+        <div class="why-card">
+          <h3>Negotiation Strategy</h3>
+          <p>Our attorneys work to pursue fair outcomes based on the damages and facts involved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <div class="section-title">
+        <span>The Legal Process</span>
+        <h2>What To Expect In A Personal Injury Claim</h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-number">1</div>
+          <h3>Consultation</h3>
+          <p>Discuss what happened, your injuries, documentation, and questions with our legal team.</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">2</div>
+          <h3>Investigation</h3>
+          <p>We review facts, evidence, reports, photos, medical information, and liability issues.</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">3</div>
+          <h3>Claim Strategy</h3>
+          <p>Our attorneys develop a strategy based on damages, insurance, deadlines, and case facts.</p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">4</div>
+          <h3>Resolution</h3>
+          <p>We work toward a favorable outcome through negotiation, settlement, or legal action when needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="container">
+      <div class="section-title">
+        <span>Sample Results</span>
+        <h2>Personal Injury Result Examples</h2>
+        <p>Fictional sample results created for portfolio demonstration purposes.</p>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <h3>$2.1M</h3>
+          <p>Truck Accident Settlement</p>
+        </div>
+
+        <div class="result-card">
+          <h3>$1.4M</h3>
+          <p>Construction Injury Settlement</p>
+        </div>
+
+        <div class="result-card">
+          <h3>$850K</h3>
+          <p>Slip & Fall Settlement</p>
+        </div>
+
+        <div class="result-card">
+          <h3>$600K</h3>
+          <p>Motor Vehicle Accident Settlement</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <div class="section-title">
+        <span>Personal Injury FAQ</span>
+        <h2>Common Questions After An Accident</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>How long do I have to file a claim?</h3>
+          <p>Deadlines depend on the type of claim and circumstances. It is important to speak with an attorney as soon as possible.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What should I bring to a consultation?</h3>
+          <p>Bring photos, reports, medical documents, insurance information, witness details, and any related correspondence.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do all injury cases go to court?</h3>
+          <p>Many cases resolve through negotiation, but every matter is different and depends on the facts and available options.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What compensation may be available?</h3>
+          <p>Potential damages vary by case and may involve medical expenses, lost income, pain, suffering, and other losses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="notice">
+    <div class="container">
+      <div class="notice-box">
+        <strong>Legal Disclaimer</strong>
+        This page is a portfolio demonstration and does not provide legal advice. Viewing this page or submitting information through a demo form does not create an attorney-client relationship. Consult a licensed attorney regarding your specific situation.
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Speak With A Personal Injury Attorney</h2>
+      <p>
+        Schedule a consultation with North Shore Legal Group and learn how our attorneys
+        can help you understand your options after an accident.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>North Shore Legal Group</h3>
+        <p>Strategic legal representation for individuals, families, and businesses across Long Island and New York.</p>
+        <br>
+        <p><strong>Phone:</strong> (631) 555-4534</p>
+        <p><strong>Email:</strong> info@northshorelegalgroup.com</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Practice Areas</h4>
+        <a href="personal-injury.html">Personal Injury</a>
+        <a href="car-accidents.html">Car Accidents</a>
+        <a href="estate-planning.html">Estate Planning</a>
+        <a href="real-estate-law.html">Real Estate Law</a>
+      </div>
+
+      <div>
+        <h4>Office</h4>
+        <p>425 Harborview Avenue</p>
+        <p>Huntington, NY 11743</p>
+        <br>
+        <p>Monday - Friday: 8 AM - 6 PM</p>
+      </div>
+    </div>
+
+    <div class="container footer-note">
+      This website is a portfolio demonstration project created by Browne Digital Solutions and does not represent a real law firm. Content is for demonstration purposes only and is not legal advice.
+      <br><br>
+      © 2026 North Shore Legal Group. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
