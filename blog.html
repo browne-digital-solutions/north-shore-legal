@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | North Shore Legal Group</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #0a1220;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section { padding: 90px 0; }
+
+    .top-bar {
+      background: #050914;
+      color: #e5e7eb;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.9rem;
+    }
+
+    .top-bar span { color: #d4af37; }
+
+    nav {
+      background: rgba(10,18,32,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212,175,55,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: white;
+    }
+
+    .logo span { color: #d4af37; }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #e5e7eb;
+    }
+
+    .nav-links a:hover { color: #d4af37; }
+
+    .nav-cta {
+      background: #d4af37;
+      color: #0a1220 !important;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 70vh;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(5,9,20,0.94), rgba(10,18,32,0.72)),
+        url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color: white;
+      padding: 100px 0;
+    }
+
+    .hero-content { max-width: 850px; }
+
+    .eyebrow {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 26px;
+    }
+
+    .hero p {
+      color: #e5e7eb;
+      font-size: 1.18rem;
+      max-width: 760px;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #d4af37;
+      color: #0a1220;
+      box-shadow: 0 15px 35px rgba(212,175,55,0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #c49f2f;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 55px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      font-size: 0.85rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #0a1220;
+      margin-top: 12px;
+      line-height: 1.1;
+    }
+
+    .section-title p {
+      color: #64748b;
+      margin-top: 15px;
+      font-size: 1.05rem;
+    }
+
+    .featured {
+      background: white;
+    }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 22px 60px rgba(15,23,42,0.1);
+    }
+
+    .featured-img {
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(10,18,32,0.15), rgba(10,18,32,0.15)),
+        url("https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+    }
+
+    .featured-content {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .category {
+      display: inline-block;
+      width: fit-content;
+      background: #0a1220;
+      color: #d4af37;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .featured-content h2 {
+      color: #0a1220;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .featured-content p {
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    .blog-section {
+      background: #f8fafc;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .blog-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.08);
+      transition: 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 55px rgba(15,23,42,0.13);
+    }
+
+    .blog-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .blog-content {
+      padding: 28px;
+    }
+
+    .blog-content h3 {
+      color: #0a1220;
+      margin-bottom: 12px;
+      font-size: 1.28rem;
+    }
+
+    .blog-content p {
+      color: #64748b;
+      margin-bottom: 18px;
+    }
+
+    .read-more {
+      color: #b89022;
+      font-weight: 900;
+    }
+
+    .categories {
+      background: white;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .category-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .category-card h3 {
+      color: #0a1220;
+      margin-bottom: 8px;
+    }
+
+    .category-card p {
+      color: #64748b;
+    }
+
+    .newsletter {
+      background:
+        linear-gradient(135deg, rgba(10,18,32,0.97), rgba(30,41,59,0.92)),
+        url("https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color: white;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 15px;
+    }
+
+    .newsletter p {
+      color: #e5e7eb;
+      max-width: 700px;
+      margin: 0 auto 28px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 600px;
+      margin: auto;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 260px;
+      padding: 15px;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .newsletter-form button {
+      padding: 15px 25px;
+      border-radius: 999px;
+      border: none;
+      background: #d4af37;
+      color: #0a1220;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .notice {
+      background: white;
+    }
+
+    .notice-box {
+      max-width: 950px;
+      margin: auto;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-left: 6px solid #d4af37;
+      border-radius: 22px;
+      padding: 32px;
+      color: #475569;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .notice-box strong {
+      display: block;
+      color: #0a1220;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #0a1220, #1e293b);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: #e5e7eb;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 1.08rem;
+    }
+
+    footer {
+      background: #050914;
+      color: #cbd5e1;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    footer h3,
+    footer h4 {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    footer a {
+      display: block;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    footer a:hover { color: #d4af37; }
+
+    .footer-note {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 22px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 950px) {
+      .nav-links { display: none; }
+
+      .featured-card,
+      .blog-grid,
+      .category-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-content {
+        padding: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div><span>Call:</span> (631) 555-4534</div>
+    <div><span>Office:</span> Huntington, New York</div>
+    <div><span>Email:</span> info@northshorelegalgroup.com</div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">North Shore <span>Legal Group</span></a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html" class="nav-cta">Free Consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Legal Insights</div>
+      <h1>Resources For Individuals, Families, And Businesses</h1>
+      <p>
+        Explore sample articles covering personal injury, estate planning, real estate,
+        and practical legal considerations.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Speak With An Attorney</a>
+    </div>
+  </header>
+
+  <section class="featured">
+    <div class="container">
+      <div class="section-title">
+        <span>Featured Article</span>
+        <h2>Legal Resources That Build Trust</h2>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-img"></div>
+
+        <div class="featured-content">
+          <span class="category">Car Accidents</span>
+          <h2>What To Do After A Car Accident In New York</h2>
+          <p>
+            After a collision, the steps you take can affect your health, insurance claim,
+            and legal options. Learn what information to gather, when to seek medical care,
+            and why documentation matters.
+          </p>
+          <a href="#" class="btn btn-primary">Read Article</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <div class="container">
+      <div class="section-title">
+        <span>Latest Articles</span>
+        <h2>Sample Legal Blog Posts</h2>
+        <p>
+          These fictional article previews show how a law firm can use blog content
+          to educate visitors and improve trust.
+        </p>
+      </div>
+
+      <div class="blog-grid">
+
+        <div class="blog-card">
+          <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="blog-content">
+            <span class="category">Personal Injury</span>
+            <h3>What To Do After A Car Accident</h3>
+            <p>Important steps to consider after a crash, including medical care, photos, and documentation.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1589578527966-fdac0f44566c?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="blog-content">
+            <span class="category">Injury Claims</span>
+            <h3>Common Mistakes After An Injury Claim</h3>
+            <p>Learn why early documentation, careful communication, and timely action may matter.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="blog-content">
+            <span class="category">Insurance</span>
+            <h3>Understanding Insurance Adjusters</h3>
+            <p>What injury claimants should know when communicating with insurance representatives.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1457694587812-e8bf29a43845?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="blog-content">
+            <span class="category">Estate Planning</span>
+            <h3>When Should You Create A Will?</h3>
+            <p>Key life events that often make estate planning documents worth reviewing or creating.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="blog-content">
+            <span class="category">Estate Planning</span>
+            <h3>Trusts vs. Wills Explained</h3>
+            <p>A simple overview of how wills and trusts may differ in an estate planning strategy.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="blog-content">
+            <span class="category">Planning</span>
+            <h3>Estate Planning Checklist</h3>
+            <p>Documents, questions, and decisions families may want to consider before meeting an attorney.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="blog-content">
+            <span class="category">Real Estate</span>
+            <h3>Preparing For A Real Estate Closing</h3>
+            <p>What buyers and sellers can expect during the closing process and how to prepare.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="blog-content">
+            <span class="category">Contracts</span>
+            <h3>Understanding Purchase Agreements</h3>
+            <p>Important contract terms buyers and sellers may want to review before signing.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="blog-content">
+            <span class="category">Real Estate</span>
+            <h3>Common Closing Delays</h3>
+            <p>Title issues, financing delays, inspection concerns, and document problems that may slow closing.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="categories">
+    <div class="container">
+      <div class="section-title">
+        <span>Categories</span>
+        <h2>Browse By Topic</h2>
+      </div>
+
+      <div class="category-grid">
+        <div class="category-card">
+          <h3>Personal Injury</h3>
+          <p>Accidents, claims, evidence, and insurance topics.</p>
+        </div>
+
+        <div class="category-card">
+          <h3>Car Accidents</h3>
+          <p>Motor vehicle crashes, liability, and next steps.</p>
+        </div>
+
+        <div class="category-card">
+          <h3>Estate Planning</h3>
+          <p>Wills, trusts, probate, and family planning.</p>
+        </div>
+
+        <div class="category-card">
+          <h3>Real Estate Law</h3>
+          <p>Closings, contracts, and property transactions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <h2>Receive Legal Updates</h2>
+      <p>
+        Subscribe to receive sample legal insights and resources. This form is included
+        for demonstration purposes only.
+      </p>
+
+      <form class="newsletter-form">
+        <input type="email" placeholder="Email Address">
+        <button type="button">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="notice">
+    <div class="container">
+      <div class="notice-box">
+        <strong>Blog Disclaimer</strong>
+        Articles, categories, newsletter forms, and legal information shown on this page are fictional examples created for portfolio demonstration purposes only. This content does not provide legal advice and does not create an attorney-client relationship.
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Have A Legal Question?</h2>
+      <p>
+        Schedule a consultation with North Shore Legal Group to discuss your situation
+        and learn more about possible next steps.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>North Shore Legal Group</h3>
+        <p>Strategic legal representation for individuals, families, and businesses across Long Island and New York.</p>
+        <br>
+        <p><strong>Phone:</strong> (631) 555-4534</p>
+        <p><strong>Email:</strong> info@northshorelegalgroup.com</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Practice Areas</h4>
+        <a href="personal-injury.html">Personal Injury</a>
+        <a href="car-accidents.html">Car Accidents</a>
+        <a href="estate-planning.html">Estate Planning</a>
+        <a href="real-estate-law.html">Real Estate Law</a>
+      </div>
+
+      <div>
+        <h4>Office</h4>
+        <p>425 Harborview Avenue</p>
+        <p>Huntington, NY 11743</p>
+        <br>
+        <p>Monday - Friday: 8 AM - 6 PM</p>
+      </div>
+    </div>
+
+    <div class="container footer-note">
+      This website is a portfolio demonstration project created by Browne Digital Solutions and does not represent a real law firm. Content is for demonstration purposes only and is not legal advice.
+      <br><br>
+      © 2026 North Shore Legal Group. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
