@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials | North Shore Legal Group</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #0a1220;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section { padding: 90px 0; }
+
+    .top-bar {
+      background: #050914;
+      color: #e5e7eb;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.9rem;
+    }
+
+    .top-bar span { color: #d4af37; }
+
+    nav {
+      background: rgba(10,18,32,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212,175,55,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span { color: #d4af37; }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #e5e7eb;
+    }
+
+    .nav-links a:hover { color: #d4af37; }
+
+    .nav-cta {
+      background: #d4af37;
+      color: #0a1220 !important;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 72vh;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(5,9,20,0.94), rgba(10,18,32,0.72)),
+        url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color: white;
+      padding: 100px 0;
+    }
+
+    .hero-content { max-width: 850px; }
+
+    .eyebrow {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 26px;
+    }
+
+    .hero p {
+      color: #e5e7eb;
+      font-size: 1.18rem;
+      max-width: 760px;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #d4af37;
+      color: #0a1220;
+      box-shadow: 0 15px 35px rgba(212,175,55,0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #c49f2f;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 55px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      font-size: 0.85rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #0a1220;
+      margin-top: 12px;
+      line-height: 1.1;
+    }
+
+    .section-title p {
+      color: #64748b;
+      margin-top: 15px;
+      font-size: 1.05rem;
+    }
+
+    .featured {
+      background: white;
+    }
+
+    .featured-card {
+      max-width: 950px;
+      margin: auto;
+      background: #0a1220;
+      color: white;
+      border-radius: 30px;
+      padding: 55px;
+      border: 1px solid rgba(212,175,55,0.3);
+      box-shadow: 0 24px 60px rgba(15,23,42,0.18);
+      text-align: center;
+    }
+
+    .stars {
+      color: #d4af37;
+      font-size: 1.5rem;
+      margin-bottom: 22px;
+      letter-spacing: 3px;
+    }
+
+    .featured-card blockquote {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 1.4;
+      margin-bottom: 25px;
+      color: #f8fafc;
+      font-weight: 700;
+    }
+
+    .featured-card p {
+      color: #cbd5e1;
+      font-weight: 800;
+    }
+
+    .grid-section {
+      background: #f8fafc;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.08);
+      transition: 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 22px 55px rgba(15,23,42,0.13);
+    }
+
+    .testimonial-card .stars {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .testimonial-card h3 {
+      color: #0a1220;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .testimonial-card p {
+      color: #64748b;
+      margin-bottom: 18px;
+    }
+
+    .testimonial-card strong {
+      color: #0a1220;
+    }
+
+    .stats {
+      background:
+        linear-gradient(135deg, rgba(10,18,32,0.97), rgba(30,41,59,0.92)),
+        url("https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color: white;
+    }
+
+    .stats .section-title h2,
+    .stats .section-title p {
+      color: white;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 22px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .stat-card h3 {
+      color: #d4af37;
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+    }
+
+    .stat-card p {
+      color: #cbd5e1;
+      font-weight: 800;
+    }
+
+    .why {
+      background: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .why-card {
+      background: #f8fafc;
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .why-card h3 {
+      color: #0a1220;
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      color: #64748b;
+    }
+
+    .platforms {
+      background: #f8fafc;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .platform-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .platform-card h3 {
+      color: #0a1220;
+      margin-bottom: 8px;
+    }
+
+    .platform-card p {
+      color: #64748b;
+    }
+
+    .notice {
+      background: white;
+    }
+
+    .notice-box {
+      max-width: 950px;
+      margin: auto;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-left: 6px solid #d4af37;
+      border-radius: 22px;
+      padding: 32px;
+      color: #475569;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .notice-box strong {
+      display: block;
+      color: #0a1220;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #0a1220, #1e293b);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: #e5e7eb;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 1.08rem;
+    }
+
+    footer {
+      background: #050914;
+      color: #cbd5e1;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    footer h3,
+    footer h4 {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    footer a {
+      display: block;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    footer a:hover { color: #d4af37; }
+
+    .footer-note {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 22px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 950px) {
+      .nav-links { display: none; }
+
+      .testimonial-grid,
+      .stats-grid,
+      .why-grid,
+      .platform-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-card {
+        padding: 35px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div><span>Call:</span> (631) 555-4534</div>
+    <div><span>Office:</span> Huntington, New York</div>
+    <div><span>Email:</span> info@northshorelegalgroup.com</div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">North Shore <span>Legal Group</span></a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html" class="nav-cta">Free Consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Client Testimonials</div>
+      <h1>Trusted By Clients Across Long Island And New York</h1>
+      <p>
+        Hear what clients have to say about their experience working with North Shore
+        Legal Group. Testimonials shown are fictional examples created for this portfolio website.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+  </header>
+
+  <section class="featured">
+    <div class="container">
+      <div class="featured-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          “From the first consultation through the resolution of my case, the team at
+          North Shore Legal Group was professional, responsive, and genuinely cared
+          about helping my family.”
+        </blockquote>
+        <p>Sarah M. | Huntington, NY</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid-section">
+    <div class="container">
+      <div class="section-title">
+        <span>Client Reviews</span>
+        <h2>What Clients Say About The Experience</h2>
+        <p>
+          These fictional reviews demonstrate how a law firm website can present client trust
+          and social proof in a polished way.
+        </p>
+      </div>
+
+      <div class="testimonial-grid">
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>Personal Injury Client</h3>
+          <p>“Excellent communication throughout the entire process. I always knew what was happening and what to expect next.”</p>
+          <strong>Melissa R.</strong>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>Estate Planning Client</h3>
+          <p>“They made a complicated process simple and easy to understand. Our family felt prepared and protected.”</p>
+          <strong>Robert L.</strong>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>Real Estate Client</h3>
+          <p>“North Shore Legal Group helped us navigate our closing with confidence and answered every question clearly.”</p>
+          <strong>Lauren P.</strong>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>Car Accident Client</h3>
+          <p>“The team was always available when we had questions and helped us understand our options after the accident.”</p>
+          <strong>James T.</strong>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>Business Client</h3>
+          <p>“Professional, organized, and strategic. They helped us resolve a stressful matter with confidence.”</p>
+          <strong>Anthony D.</strong>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>Family Planning Client</h3>
+          <p>“We appreciated the patience, attention to detail, and thoughtful guidance from start to finish.”</p>
+          <strong>Christine W.</strong>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>Injury Claim Client</h3>
+          <p>“They listened, explained everything clearly, and treated our case with care and urgency.”</p>
+          <strong>Daniel S.</strong>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>Property Transaction Client</h3>
+          <p>“The closing process was smooth, professional, and much less stressful than we expected.”</p>
+          <strong>Nicole H.</strong>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <h3>Consultation Client</h3>
+          <p>“Even during the first call, they were prepared, direct, and genuinely helpful.”</p>
+          <strong>Mark A.</strong>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="section-title">
+        <span>Client Experience</span>
+        <h2>Built Around Trust And Communication</h2>
+        <p>Fictional portfolio metrics used to demonstrate a professional law firm layout.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>98%</h3>
+          <p>Client Satisfaction</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>25+</h3>
+          <p>Years Combined Experience</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>500+</h3>
+          <p>Matters Handled</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>24hr</h3>
+          <p>Response Goal</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container">
+      <div class="section-title">
+        <span>Why Clients Recommend Us</span>
+        <h2>A Better Legal Experience From Start To Finish</h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Clear Communication</h3>
+          <p>Clients value knowing where things stand and what to expect next.</p>
+        </div>
+
+        <div class="why-card">
+          <h3>Careful Preparation</h3>
+          <p>Every matter is reviewed with attention to detail, documentation, and strategy.</p>
+        </div>
+
+        <div class="why-card">
+          <h3>Responsive Service</h3>
+          <p>Questions are answered clearly and clients are treated with respect.</p>
+        </div>
+
+        <div class="why-card">
+          <h3>Results-Focused Guidance</h3>
+          <p>The firm works toward practical outcomes that protect client interests.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="platforms">
+    <div class="container">
+      <div class="section-title">
+        <span>Review Platforms</span>
+        <h2>Example Review Presence</h2>
+        <p>Mock review platform badges included for demonstration purposes.</p>
+      </div>
+
+      <div class="platform-grid">
+        <div class="platform-card">
+          <h3>★★★★★</h3>
+          <p>Google Reviews</p>
+        </div>
+
+        <div class="platform-card">
+          <h3>★★★★★</h3>
+          <p>Avvo</p>
+        </div>
+
+        <div class="platform-card">
+          <h3>★★★★★</h3>
+          <p>Yelp</p>
+        </div>
+
+        <div class="platform-card">
+          <h3>★★★★★</h3>
+          <p>Facebook</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="notice">
+    <div class="container">
+      <div class="notice-box">
+        <strong>Testimonials Disclaimer</strong>
+        Testimonials, ratings, names, review platforms, and client experience statistics shown on this page are fictional examples created for portfolio demonstration purposes only. This website does not represent a real law firm and does not provide legal advice.
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Ready To Discuss Your Situation?</h2>
+      <p>
+        Schedule a consultation with North Shore Legal Group and learn how our attorneys
+        can help explain your options and next steps.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>North Shore Legal Group</h3>
+        <p>Strategic legal representation for individuals, families, and businesses across Long Island and New York.</p>
+        <br>
+        <p><strong>Phone:</strong> (631) 555-4534</p>
+        <p><strong>Email:</strong> info@northshorelegalgroup.com</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Practice Areas</h4>
+        <a href="personal-injury.html">Personal Injury</a>
+        <a href="car-accidents.html">Car Accidents</a>
+        <a href="estate-planning.html">Estate Planning</a>
+        <a href="real-estate-law.html">Real Estate Law</a>
+      </div>
+
+      <div>
+        <h4>Office</h4>
+        <p>425 Harborview Avenue</p>
+        <p>Huntington, NY 11743</p>
+        <br>
+        <p>Monday - Friday: 8 AM - 6 PM</p>
+      </div>
+    </div>
+
+    <div class="container footer-note">
+      This website is a portfolio demonstration project created by Browne Digital Solutions and does not represent a real law firm. Content is for demonstration purposes only and is not legal advice.
+      <br><br>
+      © 2026 North Shore Legal Group. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
