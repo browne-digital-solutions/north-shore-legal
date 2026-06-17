@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Law | North Shore Legal Group</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      font-family:Arial,sans-serif;
+      background:#f8fafc;
+      color:#0a1220;
+      line-height:1.6;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    section{
+      padding:90px 0;
+    }
+
+    .hero{
+      min-height:75vh;
+      display:flex;
+      align-items:center;
+      background:
+      linear-gradient(90deg,rgba(5,9,20,.94),rgba(10,18,32,.72)),
+      url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=80')
+      center/cover;
+      color:white;
+    }
+
+    .eyebrow{
+      color:#d4af37;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:.85rem;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-size:clamp(3rem,7vw,5rem);
+      line-height:1;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      color:#e5e7eb;
+      max-width:700px;
+      font-size:1.15rem;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      background:#d4af37;
+      color:#0a1220;
+      padding:15px 25px;
+      border-radius:999px;
+      font-weight:900;
+      text-decoration:none;
+    }
+
+    .section-title{
+      text-align:center;
+      max-width:800px;
+      margin:0 auto 60px;
+    }
+
+    .section-title span{
+      color:#d4af37;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:.85rem;
+      font-weight:900;
+    }
+
+    .section-title h2{
+      font-size:clamp(2rem,5vw,3rem);
+      margin-top:10px;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:#64748b;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .image{
+      height:520px;
+      border-radius:28px;
+      background:
+      linear-gradient(rgba(10,18,32,.15),rgba(10,18,32,.15)),
+      url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1400&q=80')
+      center/cover;
+      box-shadow:0 20px 50px rgba(15,23,42,.15);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:white;
+      border:1px solid #e5e7eb;
+      border-radius:22px;
+      padding:30px;
+      box-shadow:0 12px 30px rgba(15,23,42,.06);
+    }
+
+    .card h3{
+      margin-bottom:10px;
+    }
+
+    .card p{
+      color:#64748b;
+    }
+
+    .dark{
+      background:
+      linear-gradient(135deg,#0a1220,#1e293b);
+      color:white;
+    }
+
+    .dark .section-title h2,
+    .dark .section-title p{
+      color:white;
+    }
+
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:18px;
+    }
+
+    .process{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(212,175,55,.25);
+      border-radius:20px;
+      padding:24px;
+    }
+
+    .number{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:#d4af37;
+      color:#0a1220;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .faq-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .faq{
+      background:white;
+      border:1px solid #e5e7eb;
+      border-radius:20px;
+      padding:25px;
+      box-shadow:0 12px 30px rgba(15,23,42,.06);
+    }
+
+    .faq h3{
+      margin-bottom:10px;
+    }
+
+    .faq p{
+      color:#64748b;
+    }
+
+    .notice{
+      max-width:950px;
+      margin:auto;
+      background:white;
+      border-left:6px solid #d4af37;
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 12px 30px rgba(15,23,42,.06);
+    }
+
+    .notice strong{
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .cta{
+      text-align:center;
+      background:
+      linear-gradient(135deg,#0a1220,#1e293b);
+      color:white;
+    }
+
+    .cta h2{
+      font-size:clamp(2rem,5vw,3rem);
+      margin-bottom:15px;
+    }
+
+    .cta p{
+      max-width:700px;
+      margin:0 auto 25px;
+      color:#e5e7eb;
+    }
+
+    @media(max-width:950px){
+
+      .split,
+      .grid,
+      .process-grid,
+      .faq-grid{
+        grid-template-columns:1fr;
+      }
+
+      .image{
+        height:350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Real Estate Law</div>
+
+    <h1>Guidance For Residential & Commercial Real Estate Transactions</h1>
+
+    <p>
+      Whether you're purchasing a home, selling property, negotiating a commercial
+      transaction, or reviewing contracts, experienced legal guidance can help
+      protect your interests throughout the process.
+    </p>
+
+    <a href="contact.html" class="btn">Schedule A Consultation</a>
+  </div>
+</section>
+
+<section>
+  <div class="container split">
+
+    <div>
+      <div class="eyebrow">Property Transactions</div>
+
+      <h2 style="font-size:3rem;margin-bottom:20px;">
+        Helping Clients Navigate Complex Real Estate Matters
+      </h2>
+
+      <p style="color:#64748b;margin-bottom:20px;">
+        Real estate transactions often involve significant financial decisions,
+        legal documents, inspections, title reviews, financing requirements,
+        and contractual obligations.
+      </p>
+
+      <p style="color:#64748b;">
+        North Shore Legal Group assists clients through every stage of the
+        transaction process, helping identify potential issues before they
+        become costly problems.
+      </p>
+
+    </div>
+
+    <div class="image"></div>
+
+  </div>
+</section>
+
+<section style="background:#f8fafc;">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>Services</span>
+      <h2>Real Estate Legal Services</h2>
+      <p>
+        Support for residential, commercial, and investment property transactions.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Residential Closings</h3>
+        <p>Legal guidance for buyers and sellers throughout residential property transactions.</p>
+      </div>
+
+      <div class="card">
+        <h3>Commercial Real Estate</h3>
+        <p>Representation involving commercial purchases, sales, leasing, and development matters.</p>
+      </div>
+
+      <div class="card">
+        <h3>Contract Review</h3>
+        <p>Detailed review of purchase agreements and transaction-related documents.</p>
+      </div>
+
+      <div class="card">
+        <h3>Title & Due Diligence</h3>
+        <p>Reviewing ownership records, title concerns, and transaction risks.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="dark">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>The Process</span>
+      <h2>What To Expect During A Transaction</h2>
+      <p>
+        Every transaction is unique, but many follow a similar process.
+      </p>
+    </div>
+
+    <div class="process-grid">
+
+      <div class="process">
+        <div class="number">1</div>
+        <h3>Initial Consultation</h3>
+        <p>Review goals, transaction details, and important deadlines.</p>
+      </div>
+
+      <div class="process">
+        <div class="number">2</div>
+        <h3>Contract Review</h3>
+        <p>Evaluate terms, obligations, contingencies, and legal risks.</p>
+      </div>
+
+      <div class="process">
+        <div class="number">3</div>
+        <h3>Due Diligence</h3>
+        <p>Review title reports, inspections, financing, and supporting documents.</p>
+      </div>
+
+      <div class="process">
+        <div class="number">4</div>
+        <h3>Closing Preparation</h3>
+        <p>Coordinate documentation and finalize transaction requirements.</p>
+      </div>
+
+      <div class="process">
+        <div class="number">5</div>
+        <h3>Closing Day</h3>
+        <p>Execute documents and complete the transfer of ownership.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>Frequently Asked Questions</span>
+      <h2>Real Estate Law FAQ</h2>
+    </div>
+
+    <div class="faq-grid">
+
+      <div class="faq">
+        <h3>Do I need an attorney for a closing?</h3>
+        <p>Many buyers and sellers choose legal representation to help review contracts and protect their interests throughout the transaction.</p>
+      </div>
+
+      <div class="faq">
+        <h3>What is title insurance?</h3>
+        <p>Title insurance is designed to help protect against certain ownership and title-related issues affecting property rights.</p>
+      </div>
+
+      <div class="faq">
+        <h3>What can delay a closing?</h3>
+        <p>Financing issues, title concerns, inspections, appraisal challenges, and missing documentation can all affect closing timelines.</p>
+      </div>
+
+      <div class="faq">
+        <h3>Can you review purchase agreements?</h3>
+        <p>Yes. Contract review is often an important part of identifying obligations, risks, and important deadlines.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section style="background:#f8fafc;">
+
+  <div class="container">
+
+    <div class="notice">
+      <strong>Legal Disclaimer</strong>
+      This page is a portfolio demonstration and does not provide legal advice.
+      Viewing this website does not create an attorney-client relationship.
+      Consult a licensed attorney regarding your specific circumstances.
+    </div>
+
+  </div>
+
+</section>
+
+<section class="cta">
+
+  <div class="container">
+
+    <h2>Buying Or Selling Property?</h2>
+
+    <p>
+      Learn how legal guidance can help simplify complex real estate transactions
+      and provide confidence throughout the process.
+    </p>
+
+    <a href="contact.html" class="btn">Schedule A Consultation</a>
+
+  </div>
+
+</section>
+
+</body>
+</html>
