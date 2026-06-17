@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ | North Shore Legal Group</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #0a1220;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section { padding: 90px 0; }
+
+    .top-bar {
+      background: #050914;
+      color: #e5e7eb;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.9rem;
+    }
+
+    .top-bar span { color: #d4af37; }
+
+    nav {
+      background: rgba(10,18,32,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212,175,55,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: white;
+    }
+
+    .logo span { color: #d4af37; }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #e5e7eb;
+    }
+
+    .nav-links a:hover { color: #d4af37; }
+
+    .nav-cta {
+      background: #d4af37;
+      color: #0a1220 !important;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 70vh;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(5,9,20,0.94), rgba(10,18,32,0.72)),
+        url("https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color: white;
+      padding: 100px 0;
+    }
+
+    .hero-content { max-width: 850px; }
+
+    .eyebrow {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 26px;
+    }
+
+    .hero p {
+      color: #e5e7eb;
+      font-size: 1.18rem;
+      max-width: 760px;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #d4af37;
+      color: #0a1220;
+      box-shadow: 0 15px 35px rgba(212,175,55,0.28);
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 55px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      font-size: 0.85rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #0a1220;
+      margin-top: 12px;
+      line-height: 1.1;
+    }
+
+    .section-title p {
+      color: #64748b;
+      margin-top: 15px;
+      font-size: 1.05rem;
+    }
+
+    .faq-section:nth-child(even) { background: white; }
+    .faq-section:nth-child(odd) { background: #f8fafc; }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .faq-item {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .faq-section:nth-child(even) .faq-item {
+      background: #f8fafc;
+    }
+
+    .faq-item h3 {
+      color: #0a1220;
+      margin-bottom: 10px;
+      font-size: 1.18rem;
+    }
+
+    .faq-item p {
+      color: #64748b;
+    }
+
+    .notice {
+      background: white;
+    }
+
+    .notice-box {
+      max-width: 950px;
+      margin: auto;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-left: 6px solid #d4af37;
+      border-radius: 22px;
+      padding: 32px;
+      color: #475569;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .notice-box strong {
+      display: block;
+      color: #0a1220;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #0a1220, #1e293b);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: #e5e7eb;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 1.08rem;
+    }
+
+    footer {
+      background: #050914;
+      color: #cbd5e1;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    footer h3,
+    footer h4 {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    footer a {
+      display: block;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    footer a:hover { color: #d4af37; }
+
+    .footer-note {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 22px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 950px) {
+      .nav-links { display: none; }
+
+      .faq-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div><span>Call:</span> (631) 555-4534</div>
+    <div><span>Office:</span> Huntington, New York</div>
+    <div><span>Email:</span> info@northshorelegalgroup.com</div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">North Shore <span>Legal Group</span></a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html" class="nav-cta">Free Consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Frequently Asked Questions</div>
+      <h1>Answers To Common Legal Questions</h1>
+      <p>
+        Learn more about consultations, personal injury claims, estate planning,
+        real estate matters, and what to expect when contacting a law firm.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+  </header>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-title">
+        <span>General Questions</span>
+        <h2>Working With Our Firm</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Do you offer consultations?</h3>
+          <p>Yes. Prospective clients can request an initial consultation to discuss their matter and possible next steps.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What should I bring to a consultation?</h3>
+          <p>Bring any relevant documents, photos, reports, contracts, emails, insurance information, or notes related to your matter.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How quickly should I contact an attorney?</h3>
+          <p>It is usually best to contact an attorney as soon as possible, especially if deadlines, documents, or insurance claims may be involved.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Does contacting the firm create an attorney-client relationship?</h3>
+          <p>No. An attorney-client relationship is only created after proper conflict checks, agreement, and written engagement by the firm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-title">
+        <span>Personal Injury</span>
+        <h2>Accidents And Injury Claims</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>What should I do after an accident?</h3>
+          <p>Seek medical attention, document what happened, take photos if safe, gather witness information, and avoid giving detailed statements without guidance.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How long do I have to file a claim?</h3>
+          <p>Deadlines vary depending on the type of claim and parties involved. Speaking with an attorney early can help protect important rights.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do personal injury cases always go to court?</h3>
+          <p>No. Many matters are resolved through negotiation or settlement, but some cases may require litigation depending on the facts.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What compensation may be available?</h3>
+          <p>Depending on the case, compensation may involve medical expenses, lost income, pain and suffering, property damage, and other losses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-title">
+        <span>Estate Planning</span>
+        <h2>Planning For The Future</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Do I need an estate plan?</h3>
+          <p>Many people benefit from having basic estate planning documents, especially if they own property, have children, or want clear instructions in place.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What documents are commonly included?</h3>
+          <p>Estate plans may include wills, trusts, powers of attorney, healthcare directives, and beneficiary planning documents.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What is the difference between a will and a trust?</h3>
+          <p>A will directs how assets may be distributed after death, while a trust can provide more control over asset management and transfer.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How often should an estate plan be updated?</h3>
+          <p>Estate plans should be reviewed after major life events such as marriage, divorce, children, property purchases, or major financial changes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-title">
+        <span>Real Estate Law</span>
+        <h2>Closings, Contracts, And Property Matters</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Do I need an attorney for a real estate closing?</h3>
+          <p>Many buyers and sellers choose to work with an attorney to review contracts, address issues, and help guide the closing process.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can you review a purchase contract?</h3>
+          <p>Yes. A real estate attorney can review contract terms, identify concerns, and explain obligations before signing.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What issues can delay a closing?</h3>
+          <p>Common issues may include title problems, financing delays, inspection concerns, missing documents, or unresolved contract terms.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do you help with commercial real estate?</h3>
+          <p>Yes. Commercial real estate matters may involve leases, purchases, sales, contracts, financing documents, and business-related property issues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="notice">
+    <div class="container">
+      <div class="notice-box">
+        <strong>Legal Disclaimer</strong>
+        This FAQ page is a portfolio demonstration and does not provide legal advice. Viewing this page or submitting information through a demo form does not create an attorney-client relationship. Consult a licensed attorney regarding your specific situation.
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Still Have Questions?</h2>
+      <p>
+        Schedule a consultation with North Shore Legal Group to discuss your situation
+        and learn more about possible next steps.
+      </p>
+      <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>North Shore Legal Group</h3>
+        <p>Strategic legal representation for individuals, families, and businesses across Long Island and New York.</p>
+        <br>
+        <p><strong>Phone:</strong> (631) 555-4534</p>
+        <p><strong>Email:</strong> info@northshorelegalgroup.com</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Practice Areas</h4>
+        <a href="personal-injury.html">Personal Injury</a>
+        <a href="car-accidents.html">Car Accidents</a>
+        <a href="estate-planning.html">Estate Planning</a>
+        <a href="real-estate-law.html">Real Estate Law</a>
+      </div>
+
+      <div>
+        <h4>Office</h4>
+        <p>425 Harborview Avenue</p>
+        <p>Huntington, NY 11743</p>
+        <br>
+        <p>Monday - Friday: 8 AM - 6 PM</p>
+      </div>
+    </div>
+
+    <div class="container footer-note">
+      This website is a portfolio demonstration project created by Browne Digital Solutions and does not represent a real law firm. Content is for demonstration purposes only and is not legal advice.
+      <br><br>
+      © 2026 North Shore Legal Group. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
