@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | North Shore Legal Group</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #0a1220;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section { padding: 90px 0; }
+
+    .top-bar {
+      background: #050914;
+      color: #e5e7eb;
+      padding: 10px 5%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 0.9rem;
+    }
+
+    .top-bar span { color: #d4af37; }
+
+    nav {
+      background: rgba(10,18,32,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(212,175,55,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span { color: #d4af37; }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #e5e7eb;
+    }
+
+    .nav-links a:hover { color: #d4af37; }
+
+    .nav-cta {
+      background: #d4af37;
+      color: #0a1220 !important;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+    }
+
+    .hero {
+      min-height: 70vh;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(5,9,20,0.94), rgba(10,18,32,0.72)),
+        url("https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color: white;
+      padding: 100px 0;
+    }
+
+    .hero-content { max-width: 850px; }
+
+    .eyebrow {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.4rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 26px;
+    }
+
+    .hero p {
+      color: #e5e7eb;
+      font-size: 1.18rem;
+      max-width: 760px;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #d4af37;
+      color: #0a1220;
+      box-shadow: 0 15px 35px rgba(212,175,55,0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #c49f2f;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 55px;
+    }
+
+    .section-title span {
+      color: #d4af37;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+      font-size: 0.85rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #0a1220;
+      margin-top: 12px;
+      line-height: 1.1;
+    }
+
+    .section-title p {
+      color: #64748b;
+      margin-top: 15px;
+      font-size: 1.05rem;
+    }
+
+    .contact-main {
+      background: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 35px;
+      align-items: stretch;
+    }
+
+    .form-card,
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 28px;
+      padding: 38px;
+      box-shadow: 0 18px 45px rgba(15,23,42,0.08);
+    }
+
+    .form-card h2,
+    .info-card h2 {
+      color: #0a1220;
+      margin-bottom: 18px;
+      font-size: 2rem;
+    }
+
+    .form-card p,
+    .info-card p {
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #d1d5db;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-family: Arial, sans-serif;
+      background: white;
+      color: #0a1220;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+      margin-top: 16px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 18px;
+      background: #d4af37;
+      color: #0a1220;
+      padding: 16px;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background: #c49f2f;
+      transform: translateY(-3px);
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .info-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #0a1220;
+      color: #d4af37;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .info-item h3 {
+      color: #0a1220;
+      margin-bottom: 5px;
+    }
+
+    .info-item p {
+      margin: 0;
+      color: #64748b;
+    }
+
+    .why-contact {
+      background: #f8fafc;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .why-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .why-card h3 {
+      color: #0a1220;
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      color: #64748b;
+    }
+
+    .office {
+      background: white;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .office-image {
+      height: 520px;
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(10,18,32,0.15), rgba(10,18,32,0.15)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
+      box-shadow: 0 22px 60px rgba(15,23,42,0.16);
+    }
+
+    .split h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #0a1220;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .split p {
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    .office-list {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .office-list li {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-left: 5px solid #d4af37;
+      padding: 16px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      color: #334155;
+      font-weight: 800;
+    }
+
+    .map-section {
+      background: #f8fafc;
+    }
+
+    .map-box {
+      height: 430px;
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(10,18,32,0.88), rgba(30,41,59,0.78)),
+        url("https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: white;
+      box-shadow: 0 18px 45px rgba(15,23,42,0.12);
+      padding: 30px;
+    }
+
+    .map-box h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .map-box p {
+      color: #e5e7eb;
+    }
+
+    .faq {
+      background: white;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .faq-item {
+      background: #f8fafc;
+      padding: 26px;
+      border-radius: 22px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+    }
+
+    .faq-item h3 {
+      color: #0a1220;
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
+      color: #64748b;
+    }
+
+    .notice {
+      background: #f8fafc;
+    }
+
+    .notice-box {
+      max-width: 950px;
+      margin: auto;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-left: 6px solid #d4af37;
+      border-radius: 22px;
+      padding: 32px;
+      color: #475569;
+      box-shadow: 0 14px 35px rgba(15,23,42,0.06);
+    }
+
+    .notice-box strong {
+      display: block;
+      color: #0a1220;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #0a1220, #1e293b);
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: #e5e7eb;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 1.08rem;
+    }
+
+    footer {
+      background: #050914;
+      color: #cbd5e1;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    footer h3,
+    footer h4 {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    footer a {
+      display: block;
+      color: #cbd5e1;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    footer a:hover { color: #d4af37; }
+
+    .footer-note {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 22px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 950px) {
+      .nav-links { display: none; }
+
+      .contact-grid,
+      .form-row,
+      .why-grid,
+      .split,
+      .faq-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .office-image {
+        height: 360px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div><span>Call:</span> (631) 555-4534</div>
+    <div><span>Office:</span> Huntington, New York</div>
+    <div><span>Email:</span> info@northshorelegalgroup.com</div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">North Shore <span>Legal Group</span></a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html" class="nav-cta">Free Consultation</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Contact Us</div>
+      <h1>Schedule A Consultation With North Shore Legal Group</h1>
+      <p>
+        Contact our legal team to discuss your situation, ask questions, and learn
+        how our attorneys may be able to help.
+      </p>
+      <a href="#consultation-form" class="btn btn-primary">Request Consultation</a>
+    </div>
+  </header>
+
+  <section class="contact-main" id="consultation-form">
+    <div class="container">
+      <div class="section-title">
+        <span>Get In Touch</span>
+        <h2>Request A Consultation</h2>
+        <p>
+          Complete the form below and a member of the team would follow up in a real law firm website.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="form-card">
+          <h2>Consultation Request</h2>
+          <p>Please do not submit sensitive information through this demo form.</p>
+
+          <form>
+            <div class="form-row">
+              <input type="text" placeholder="First Name">
+              <input type="text" placeholder="Last Name">
+            </div>
+
+            <div class="form-row">
+              <input type="email" placeholder="Email Address">
+              <input type="tel" placeholder="Phone Number">
+            </div>
+
+            <select>
+              <option>Practice Area</option>
+              <option>Personal Injury</option>
+              <option>Car Accidents</option>
+              <option>Estate Planning</option>
+              <option>Real Estate Law</option>
+              <option>Other</option>
+            </select>
+
+            <textarea placeholder="Briefly describe your legal matter"></textarea>
+
+            <button type="button" class="submit-btn">Request Consultation</button>
+          </form>
+        </div>
+
+        <div class="info-card">
+          <h2>Contact Information</h2>
+          <p>Reach out by phone, email, or visit our Huntington office.</p>
+
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div>
+              <h3>Phone</h3>
+              <p>(631) 555-4534</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div>
+              <h3>Email</h3>
+              <p>info@northshorelegalgroup.com</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <h3>Office</h3>
+              <p>425 Harborview Avenue<br>Huntington, NY 11743</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">🕒</div>
+            <div>
+              <h3>Office Hours</h3>
+              <p>Monday - Friday: 8 AM - 6 PM<br>Saturday: By Appointment<br>Sunday: Closed</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="why-contact">
+    <div class="container">
+      <div class="section-title">
+        <span>Why Contact Us</span>
+        <h2>Clear Guidance From The First Conversation</h2>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>⚖️ Experienced Guidance</h3>
+          <p>Speak with a team that understands personal injury, estate planning, and real estate matters.</p>
+        </div>
+
+        <div class="why-card">
+          <h3>📞 Responsive Communication</h3>
+          <p>Our process is built around clear answers, timely follow-up, and client communication.</p>
+        </div>
+
+        <div class="why-card">
+          <h3>🤝 Personalized Attention</h3>
+          <p>Every legal matter is different, so every client deserves an individualized approach.</p>
+        </div>
+
+        <div class="why-card">
+          <h3>📋 Strategic Solutions</h3>
+          <p>We focus on practical legal strategies designed around your goals and situation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="office">
+    <div class="container split">
+      <div class="office-image"></div>
+
+      <div>
+        <div class="eyebrow">Visit Our Office</div>
+        <h2>Located In Huntington, Serving Clients Across New York</h2>
+        <p>
+          North Shore Legal Group is positioned to serve individuals, families,
+          and businesses across Long Island and the greater New York area.
+        </p>
+
+        <p>
+          Our office is designed to provide a professional, private, and comfortable
+          setting for client consultations and legal meetings.
+        </p>
+
+        <ul class="office-list">
+          <li>425 Harborview Avenue, Huntington, NY 11743</li>
+          <li>Free parking available</li>
+          <li>Private consultation rooms</li>
+          <li>Appointments available Monday through Friday</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="container">
+      <div class="section-title">
+        <span>Location</span>
+        <h2>Find Our Office</h2>
+      </div>
+
+      <div class="map-box">
+        <div>
+          <h3>Interactive Map Placeholder</h3>
+          <p>A real law firm website would include an embedded Google Map here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <div class="section-title">
+        <span>Contact FAQ</span>
+        <h2>Before You Reach Out</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Do you offer consultations?</h3>
+          <p>Yes, prospective clients can request an initial consultation to discuss their legal matter.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What should I bring?</h3>
+          <p>Bring documents, photos, contracts, reports, emails, or other materials related to your matter.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How quickly will someone respond?</h3>
+          <p>A real firm would typically follow up as soon as possible during normal business hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="notice">
+    <div class="container">
+      <div class="notice-box">
+        <strong>Important Demo Disclaimer</strong>
+        This is a portfolio demonstration website. Form submissions are not monitored and do not create an attorney-client relationship. Do not submit confidential, sensitive, or urgent legal information through this demo form.
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Ready To Speak With An Attorney?</h2>
+      <p>
+        Schedule a consultation with North Shore Legal Group and take the next step
+        toward understanding your legal options.
+      </p>
+      <a href="#consultation-form" class="btn btn-primary">Request Consultation</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>North Shore Legal Group</h3>
+        <p>Strategic legal representation for individuals, families, and businesses across Long Island and New York.</p>
+        <br>
+        <p><strong>Phone:</strong> (631) 555-4534</p>
+        <p><strong>Email:</strong> info@northshorelegalgroup.com</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="about.html">About</a>
+        <a href="attorneys.html">Attorneys</a>
+        <a href="practice-areas.html">Practice Areas</a>
+        <a href="case-results.html">Case Results</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div>
+        <h4>Practice Areas</h4>
+        <a href="personal-injury.html">Personal Injury</a>
+        <a href="car-accidents.html">Car Accidents</a>
+        <a href="estate-planning.html">Estate Planning</a>
+        <a href="real-estate-law.html">Real Estate Law</a>
+      </div>
+
+      <div>
+        <h4>Office</h4>
+        <p>425 Harborview Avenue</p>
+        <p>Huntington, NY 11743</p>
+        <br>
+        <p>Monday - Friday: 8 AM - 6 PM</p>
+      </div>
+    </div>
+
+    <div class="container footer-note">
+      This website is a portfolio demonstration project created by Browne Digital Solutions and does not represent a real law firm. Content is for demonstration purposes only and is not legal advice.
+      <br><br>
+      © 2026 North Shore Legal Group. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
