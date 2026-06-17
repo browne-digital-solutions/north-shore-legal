@@ -84,7 +84,7 @@
     }
 
     .hero {
-      min-height: 70vh;
+      min-height: 72vh;
       display: grid;
       align-items: center;
       background:
@@ -187,26 +187,40 @@
 
     .practice-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
     }
 
     .practice-card {
       background: white;
-      padding: 32px;
-      border-radius: 24px;
+      border-radius: 28px;
+      overflow: hidden;
       border: 1px solid #e5e7eb;
-      box-shadow: 0 16px 40px rgba(15,23,42,0.08);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.1);
       transition: 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 300px;
     }
 
     .practice-card:hover {
       transform: translateY(-7px);
-      box-shadow: 0 22px 55px rgba(15,23,42,0.13);
+      box-shadow: 0 24px 60px rgba(15,23,42,0.15);
+    }
+
+    .practice-img {
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .practice-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(10,18,32,0.1), rgba(10,18,32,0.55));
+    }
+
+    .practice-content {
+      padding: 34px;
     }
 
     .practice-icon {
@@ -221,15 +235,33 @@
       margin-bottom: 18px;
     }
 
-    .practice-card h3 {
+    .practice-content h3 {
       color: #0a1220;
-      font-size: 1.3rem;
+      font-size: 1.65rem;
       margin-bottom: 12px;
     }
 
-    .practice-card p {
+    .practice-content p {
       color: #64748b;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
+    }
+
+    .practice-list {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .practice-list li {
+      color: #334155;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .practice-list li::before {
+      content: "✓";
+      color: #d4af37;
+      margin-right: 8px;
+      font-weight: 900;
     }
 
     .learn-more {
@@ -275,8 +307,8 @@
 
     .client-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
     }
 
     .client-card {
@@ -296,7 +328,39 @@
       color: #64748b;
     }
 
-    .process { background: #f8fafc; }
+    .spotlight {
+      background: #f8fafc;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .attorney-image {
+      height: 520px;
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(10,18,32,0.12), rgba(10,18,32,0.12)),
+        url("https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
+      box-shadow: 0 22px 60px rgba(15,23,42,0.16);
+    }
+
+    .split h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #0a1220;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .split p {
+      color: #64748b;
+      margin-bottom: 18px;
+    }
+
+    .process { background: white; }
 
     .process-grid {
       display: grid;
@@ -305,7 +369,7 @@
     }
 
     .process-card {
-      background: white;
+      background: #f8fafc;
       border: 1px solid #e5e7eb;
       border-radius: 22px;
       padding: 30px;
@@ -330,6 +394,33 @@
     }
 
     .process-card p {
+      color: #64748b;
+    }
+
+    .faq {
+      background: #f8fafc;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .faq-item {
+      background: white;
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+    }
+
+    .faq-item h3 {
+      color: #0a1220;
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
       color: #64748b;
     }
 
@@ -412,9 +503,15 @@
       .practice-grid,
       .why-grid,
       .client-grid,
+      .split,
       .process-grid,
+      .faq-grid,
       .footer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .attorney-image {
+        height: 360px;
       }
     }
   </style>
@@ -448,11 +545,10 @@
   <header class="hero">
     <div class="container hero-content">
       <div class="eyebrow">Practice Areas</div>
-      <h1>Comprehensive Legal Services For Complex Matters</h1>
+      <h1>Strategic Legal Representation For Life’s Most Important Matters</h1>
       <p>
-        North Shore Legal Group represents individuals, families, and businesses
-        throughout New York across personal injury, workers compensation, estate
-        planning, real estate, and litigation matters.
+        North Shore Legal Group provides focused legal counsel for individuals,
+        families, and businesses throughout New York.
       </p>
       <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
     </div>
@@ -462,20 +558,19 @@
     <div class="container">
       <div class="section-title">
         <span>Our Approach</span>
-        <h2>Strategic Guidance Across A Wide Range Of Legal Needs</h2>
+        <h2>Boutique Legal Service With Serious Attention To Detail</h2>
         <p>
-          Every legal matter is different. Our attorneys take the time to understand
-          the facts, explain available options, and develop a clear strategy based on
-          the client's goals.
+          We focus on four core areas where clients need clear guidance, careful
+          preparation, and trusted advocacy.
         </p>
       </div>
 
       <div class="intro-box">
         <p>
-          Whether you are pursuing compensation after an accident, protecting your
-          family with an estate plan, handling a real estate transaction, or seeking
-          guidance during a dispute, North Shore Legal Group provides focused,
-          professional representation designed to help clients move forward with confidence.
+          Whether you are recovering after an accident, planning for your family’s
+          future, purchasing property, or navigating a legal concern, North Shore
+          Legal Group provides practical advice and strategic representation designed
+          around your goals.
         </p>
       </div>
     </div>
@@ -484,85 +579,86 @@
   <section class="areas">
     <div class="container">
       <div class="section-title">
-        <span>Legal Services</span>
-        <h2>Practice Areas We Handle</h2>
-        <p>
-          Explore the major practice areas represented by this luxury law firm website concept.
-        </p>
+        <span>Featured Practice Areas</span>
+        <h2>Focused Legal Services For Individuals, Families, And Businesses</h2>
       </div>
 
       <div class="practice-grid">
 
         <div class="practice-card">
-          <div>
+          <div class="practice-img" style="background-image:url('https://images.unsplash.com/photo-1505663912202-ac22d4cb3707?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="practice-content">
             <div class="practice-icon">⚖️</div>
             <h3>Personal Injury</h3>
-            <p>Protecting the rights of individuals injured due to negligence, unsafe conditions, or preventable accidents.</p>
+            <p>
+              Representing individuals who have suffered injuries due to negligence,
+              unsafe conditions, or preventable accidents.
+            </p>
+            <ul class="practice-list">
+              <li>Slip and fall accidents</li>
+              <li>Construction injuries</li>
+              <li>Wrongful death claims</li>
+              <li>Serious injury matters</li>
+            </ul>
+            <a href="personal-injury.html" class="learn-more">Learn More →</a>
           </div>
-          <a href="personal-injury.html" class="learn-more">View Practice Area →</a>
         </div>
 
         <div class="practice-card">
-          <div>
+          <div class="practice-img" style="background-image:url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="practice-content">
             <div class="practice-icon">🚗</div>
             <h3>Car Accidents</h3>
-            <p>Helping injured drivers, passengers, and pedestrians pursue fair compensation after serious motor vehicle crashes.</p>
+            <p>
+              Helping injured drivers, passengers, pedestrians, and families understand
+              their rights after motor vehicle accidents.
+            </p>
+            <ul class="practice-list">
+              <li>Insurance claims</li>
+              <li>Liability disputes</li>
+              <li>Serious injuries</li>
+              <li>Settlement negotiations</li>
+            </ul>
+            <a href="car-accidents.html" class="learn-more">Learn More →</a>
           </div>
-          <a href="car-accidents.html" class="learn-more">View Practice Area →</a>
         </div>
 
         <div class="practice-card">
-          <div>
-            <div class="practice-icon">🚚</div>
-            <h3>Truck Accidents</h3>
-            <p>Representation for complex commercial vehicle claims involving trucking companies, insurers, and serious injuries.</p>
-          </div>
-          <a href="truck-accidents.html" class="learn-more">View Practice Area →</a>
-        </div>
-
-        <div class="practice-card">
-          <div>
-            <div class="practice-icon">🏢</div>
-            <h3>Slip & Fall Accidents</h3>
-            <p>Advocating for people injured by unsafe property conditions, poor maintenance, or preventable hazards.</p>
-          </div>
-          <a href="slip-and-fall.html" class="learn-more">View Practice Area →</a>
-        </div>
-
-        <div class="practice-card">
-          <div>
-            <div class="practice-icon">🏥</div>
-            <h3>Medical Malpractice</h3>
-            <p>Legal guidance for victims of medical negligence, preventable harm, and serious healthcare-related injuries.</p>
-          </div>
-          <a href="medical-malpractice.html" class="learn-more">View Practice Area →</a>
-        </div>
-
-        <div class="practice-card">
-          <div>
-            <div class="practice-icon">🛠️</div>
-            <h3>Workers Compensation</h3>
-            <p>Helping injured workers pursue available benefits, medical support, and legal guidance after workplace injuries.</p>
-          </div>
-          <a href="workers-compensation.html" class="learn-more">View Practice Area →</a>
-        </div>
-
-        <div class="practice-card">
-          <div>
+          <div class="practice-img" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="practice-content">
             <div class="practice-icon">📜</div>
             <h3>Estate Planning</h3>
-            <p>Wills, trusts, probate guidance, powers of attorney, and long-term planning for individuals and families.</p>
+            <p>
+              Helping individuals and families protect assets, plan for the future,
+              and make important decisions with confidence.
+            </p>
+            <ul class="practice-list">
+              <li>Wills and trusts</li>
+              <li>Power of attorney</li>
+              <li>Healthcare directives</li>
+              <li>Probate guidance</li>
+            </ul>
+            <a href="estate-planning.html" class="learn-more">Learn More →</a>
           </div>
-          <a href="estate-planning.html" class="learn-more">View Practice Area →</a>
         </div>
 
         <div class="practice-card">
-          <div>
+          <div class="practice-img" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="practice-content">
             <div class="practice-icon">🏠</div>
             <h3>Real Estate Law</h3>
-            <p>Residential and commercial transaction support, closings, contract review, and property-related representation.</p>
+            <p>
+              Supporting buyers, sellers, investors, and business owners through
+              residential and commercial real estate matters.
+            </p>
+            <ul class="practice-list">
+              <li>Residential closings</li>
+              <li>Commercial transactions</li>
+              <li>Contract review</li>
+              <li>Property disputes</li>
+            </ul>
+            <a href="real-estate-law.html" class="learn-more">Learn More →</a>
           </div>
-          <a href="real-estate-law.html" class="learn-more">View Practice Area →</a>
         </div>
 
       </div>
@@ -572,33 +668,33 @@
   <section class="why">
     <div class="container">
       <div class="section-title">
-        <span>Why Experience Matters</span>
-        <h2>Legal Representation Built Around Preparation</h2>
+        <span>Why Clients Choose Us</span>
+        <h2>Experienced Guidance With A Personalized Approach</h2>
         <p>
-          Strong legal representation requires more than knowing the law. It requires
-          planning, communication, and careful attention to the details that matter.
+          Legal matters often involve important decisions. Our team provides clear
+          communication, careful preparation, and thoughtful strategy.
         </p>
       </div>
 
       <div class="why-grid">
         <div class="why-card">
-          <h3>Personalized Strategy</h3>
-          <p>Each matter is reviewed individually so the legal approach fits the facts and client goals.</p>
+          <h3>Personalized Legal Strategy</h3>
+          <p>Every matter is reviewed individually so the approach fits the client’s goals.</p>
         </div>
 
         <div class="why-card">
           <h3>Responsive Communication</h3>
-          <p>Clients receive updates, explanations, and guidance throughout the process.</p>
+          <p>Clients receive clear updates and guidance throughout the process.</p>
         </div>
 
         <div class="why-card">
-          <h3>Thorough Preparation</h3>
-          <p>Careful preparation helps build stronger claims, transactions, negotiations, and legal positions.</p>
+          <h3>Experienced Representation</h3>
+          <p>Our attorneys bring experience across litigation, injury claims, planning, and transactions.</p>
         </div>
 
         <div class="why-card">
-          <h3>Results-Oriented Representation</h3>
-          <p>Our attorneys focus on practical solutions and meaningful outcomes for every client.</p>
+          <h3>Results-Focused Advocacy</h3>
+          <p>We work toward practical outcomes that protect client interests.</p>
         </div>
       </div>
     </div>
@@ -608,39 +704,50 @@
     <div class="container">
       <div class="section-title">
         <span>Who We Serve</span>
-        <h2>Legal Guidance For Different Client Needs</h2>
+        <h2>Legal Support For A Range Of Client Needs</h2>
       </div>
 
       <div class="client-grid">
         <div class="client-card">
           <h3>Individuals</h3>
-          <p>Representation for injury claims, disputes, workplace matters, and personal legal needs.</p>
+          <p>Guidance after injuries, accidents, disputes, and personal legal concerns.</p>
         </div>
 
         <div class="client-card">
           <h3>Families</h3>
-          <p>Estate planning, probate guidance, real estate support, and long-term legal planning.</p>
-        </div>
-
-        <div class="client-card">
-          <h3>Business Owners</h3>
-          <p>Practical legal guidance for transactions, disputes, real estate, and risk management.</p>
+          <p>Estate planning, probate guidance, and long-term legal preparation.</p>
         </div>
 
         <div class="client-card">
           <h3>Property Owners</h3>
-          <p>Support with real estate transactions, closings, contracts, and property-related matters.</p>
+          <p>Support for real estate transactions, closings, and property issues.</p>
         </div>
 
         <div class="client-card">
-          <h3>Employees</h3>
-          <p>Workers compensation and workplace-related legal guidance after injury or dispute.</p>
+          <h3>Business Owners</h3>
+          <p>Practical guidance for property matters, contracts, and disputes.</p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="client-card">
-          <h3>Real Estate Investors</h3>
-          <p>Transaction support, contract review, and closing guidance for investment properties.</p>
-        </div>
+  <section class="spotlight">
+    <div class="container split">
+      <div class="attorney-image"></div>
+
+      <div>
+        <div class="eyebrow">Attorney Spotlight</div>
+        <h2>Michael Harrington, Esq.</h2>
+        <p>
+          As founding partner of North Shore Legal Group, Michael Harrington has spent
+          more than two decades representing clients throughout New York in personal
+          injury, civil litigation, workers compensation, and complex negotiation matters.
+        </p>
+        <p>
+          Michael leads the firm with a focus on preparation, professionalism, and
+          client-centered legal strategy.
+        </p>
+        <a href="attorneys.html" class="btn btn-primary">Meet Our Attorneys</a>
       </div>
     </div>
   </section>
@@ -656,25 +763,56 @@
         <div class="process-card">
           <div class="process-number">1</div>
           <h3>Initial Consultation</h3>
-          <p>Discuss your situation, questions, and goals with our legal team.</p>
+          <p>Discuss your situation, goals, and legal questions.</p>
         </div>
 
         <div class="process-card">
           <div class="process-number">2</div>
           <h3>Case Evaluation</h3>
-          <p>Our attorneys review the facts, documents, timeline, and legal considerations.</p>
+          <p>We review facts, documents, timelines, and legal considerations.</p>
         </div>
 
         <div class="process-card">
           <div class="process-number">3</div>
           <h3>Legal Strategy</h3>
-          <p>We develop a plan based on your goals and the specific details of your matter.</p>
+          <p>Our attorneys develop a plan based on your needs and goals.</p>
         </div>
 
         <div class="process-card">
           <div class="process-number">4</div>
           <h3>Representation</h3>
-          <p>Our team advocates for your interests and guides you through each step.</p>
+          <p>We advocate for your interests and guide you through each step.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <div class="section-title">
+        <span>FAQ</span>
+        <h2>Common Practice Area Questions</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>What type of legal matter do I have?</h3>
+          <p>An attorney can help determine which practice area applies after reviewing your situation.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do you offer consultations?</h3>
+          <p>Yes, prospective clients can request an initial consultation to discuss their legal needs.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can you help with both injury and planning matters?</h3>
+          <p>Yes, the firm focuses on personal injury, car accidents, estate planning, and real estate law.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What should I bring to a consultation?</h3>
+          <p>Bring any relevant documents, photos, contracts, reports, or correspondence related to your matter.</p>
         </div>
       </div>
     </div>
